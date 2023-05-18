@@ -1,10 +1,10 @@
 import gamefunction as gf
 
 
-count = 0
+
 array = gf.arrayget()
 gf.gamestart()
-
+count = 0
 while (1):
     ans = gf.arrayinput()
     if (gf.arraycheck(ans) == 1):
@@ -13,8 +13,7 @@ while (1):
         print(gf.tryagain, end=" ")
         continue
     count += 1
-    cheak = gf.Anscheak(array, ans)
-    if (cheak == 1):
+    if (gf.Anscheak(array, ans) == 1):
         break
     elif (count == 3):
         print(gf.encourage1)
