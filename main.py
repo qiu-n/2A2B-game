@@ -1,16 +1,24 @@
-import gamefunction as gf
+from gamefunction import (
+    random_algorithm,
+    print_gamestart,
+    Anscheak,
+    input_ans,
+    print_encourag,
+    Correct
+)
+
 Game_Nunbers = 0
 if __name__ == "__main__":
-    #get password 
-    passwd = gf.random_algorithm()
-    #print gamestart
-    gf.print_gamestart()
-    #game-while
+    # get password
+    passwd = random_algorithm()
+    # print gamestart
+    print_gamestart()
+    # game-while
     while 1:
-        ans = gf.input_ans()
+        ans = input_ans()
         Game_Nunbers += 1
-        if gf.Anscheak(passwd, ans) == True:
+        if Anscheak(passwd, ans) == True:
             break
-        gf.print_encourag(Game_Nunbers)
-    #game end    
-    print(gf.Correct)
+        print_encourag(Game_Nunbers)
+    # game end
+    print(Correct)
