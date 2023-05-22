@@ -22,8 +22,12 @@ encourage11 = "\t\033[1;31;1m e04\033[0m"
 
 
 def random_algorithm():
+    # get first passwd
     passwd = [rd.randint(1, 9)]
+
+    # get other passwd
     sequence = [i for i in range(0, 10)]
+    # remove first passwd
     sequence.remove(passwd[0])
     passwd += rd.sample(sequence, 3)
     return passwd
@@ -31,22 +35,31 @@ def random_algorithm():
 
 def input_ans():
     while 1:
+        # get answer in list
         ans = list(input())
+
+        # check exit
         if ans == ["e", "x", "i", "t"]:
             os._exit(1)
+
+        # check answer type
         if check_array(ans) == True:
             break
         print_error()
 
+    # answer turn into list(int)
     ans_new = [int(x) for x in ans]
     return ans_new
 
 
 def check_array(array):
+    # check repetition and length
     if len(set(array)) != 4 or len(array) != 4:
         return False
+    # check first answer
     if array[0] == "0":
         return False
+    # checklist not in English
     for i in array:
         if str(i).isdigit() != True:
             return False
@@ -54,9 +67,11 @@ def check_array(array):
 
 
 def Anscheak(array, ans):
+    # check ans==passwd
     if array == ans:
         print("\t\033[1;37;1m", "4", "A", "0", "B")
         return True
+    # get a few 'A' a few 'B' and return by list
     Anslist = [0, 0]
     for i in range(0, 4):
         for j in range(0, 4):
