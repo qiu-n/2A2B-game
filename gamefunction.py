@@ -1,5 +1,6 @@
 import random as rd
 import os
+from typing import List
 
 Dividingline = "\t\033[1;91m=============================================\033[0m"
 Errorsign = "\t\033[1;91m TYPE ERROR!! PLEASE ENTER THE CORRECT TYPE~\033[0m"
@@ -21,7 +22,7 @@ encourage10 = "\t\033[1;31;1m You are the person or animal I have ever seen inte
 encourage11 = "\t\033[1;31;1m e04\033[0m"
 
 
-def random_algorithm():
+def random_algorithm() -> List[int]:
     # get first passwd
     passwd = [rd.randint(1, 9)]
 
@@ -33,10 +34,10 @@ def random_algorithm():
     return passwd
 
 
-def input_ans():
+def input_ans() -> List[int]:
     while 1:
         # get answer in list
-        ans = list(input())
+        ans: List[str] = list(input())
 
         # check exit
         if ans == ["e", "x", "i", "t"]:
@@ -52,7 +53,7 @@ def input_ans():
     return ans_new
 
 
-def check_array(array):
+def check_array(array: List[str]) -> bool:
     # check repetition and length
     if len(set(array)) != 4 or len(array) != 4:
         return False
@@ -66,13 +67,13 @@ def check_array(array):
     return True
 
 
-def Anscheak(array, ans):
+def Anscheak(array: List[int], ans: List[int]) -> bool:
     # check ans==passwd
     if array == ans:
         print("\t\033[1;37;1m", "4", "A", "0", "B")
         return True
     # get a few 'A' a few 'B' and return by list
-    Anslist = [0, 0]
+    Anslist: List[int] = [0, 0]
     for i in range(0, 4):
         for j in range(0, 4):
             if array[i] == ans[j]:
@@ -96,7 +97,7 @@ def print_error():
     print(tryagain, end=" ")
 
 
-def print_encourag(count):
+def print_encourag(count: int):
     if count == 3:
         print(encourage1)
     elif count == 6:
