@@ -97,7 +97,7 @@ def print_error():
     print(tryagain, end=" ")
 
 
-def print_encourag(count: int):
+def print_encourage(count: int):
     if count == 3:
         print(encourage1)
     elif count == 6:

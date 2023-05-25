@@ -3,8 +3,9 @@ from gamefunction import (
     print_gamestart,
     Anscheak,
     input_ans,
-    print_encourag,
-    Correct
+    print_encourage,
+    Correct,
+    List,
 )
 
 Game_Nunbers = 0
@@ -15,10 +16,10 @@ if __name__ == "__main__":
     print_gamestart()
     # game-while
     while 1:
-        ans = input_ans()
+        ans: List[int] = input_ans()
         Game_Nunbers += 1
         if Anscheak(passwd, ans) == True:
             break
-        print_encourag(Game_Nunbers)
+        print_encourage(Game_Nunbers)
     # game end
     print(Correct)
